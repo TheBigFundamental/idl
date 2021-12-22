@@ -1,4 +1,4 @@
-module github.com/TheBigFundamental/idl/go/user
+module github.com/thebigfundamental/idl/go/user
 
 go 1.16
 
