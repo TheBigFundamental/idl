@@ -1,6 +1,6 @@
 .PHONY: all clean go py
 
-GITHUB_ROOT=github.com/TheBigFundamental/idl/go
+GITHUB_ROOT=github.com/thebigfundamental/idl/go
 
 PROTO_DIR=proto
 TBF_DIR=$(PROTO_DIR)/tbf
