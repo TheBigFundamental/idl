@@ -5,9 +5,13 @@ option go_package = "go/user";
 import "tbf/user/base.proto";
 
 service UserService {
-    rpc GetByID(GetByIDRequest) returns (User){}
+    rpc GetById(GetByIdRequest) returns (GetByIdResponse){}
 }
 
-message GetByIDRequest {
+message GetByIdRequest {
     int64 id = 1;
+}
+
+message GetByIdResponse {
+    User user = 1;
 }

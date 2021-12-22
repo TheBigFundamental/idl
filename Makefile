@@ -24,7 +24,7 @@ go: $(GO_MODS)
 
 $(GO_DIR)/%/go.mod: $(TBF_DIR)/%/*.proto
 	protoc --proto_path=$(PROTO_DIR) --go_out=./ --go-grpc_out=./ $^
-	cd $(GO_DIR)/$(*) && go mod init $(GO_GITHUB_ROOT)/$* && go mod tidy
+	cd $(GO_DIR)/$(*) && rm go.mod && go mod init $(GO_GITHUB_ROOT)/$* && go mod tidy
 
 py: $(PY_INIT) $(PY_DIR)/$(TBF)/__init__.py
 

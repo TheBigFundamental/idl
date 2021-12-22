@@ -2,7 +2,6 @@
 """Client and server classes corresponding to protobuf-defined services."""
 import grpc
 
-from tbf.user import base_pb2 as tbf_dot_user_dot_base__pb2
 from tbf.user import user_pb2 as tbf_dot_user_dot_user__pb2
 
 
@@ -15,17 +14,17 @@ class UserServiceStub(object):
         Args:
             channel: A grpc.Channel.
         """
-        self.GetByID = channel.unary_unary(
-                '/UserService/GetByID',
-                request_serializer=tbf_dot_user_dot_user__pb2.GetByIDRequest.SerializeToString,
-                response_deserializer=tbf_dot_user_dot_base__pb2.User.FromString,
+        self.GetById = channel.unary_unary(
+                '/UserService/GetById',
+                request_serializer=tbf_dot_user_dot_user__pb2.GetByIdRequest.SerializeToString,
+                response_deserializer=tbf_dot_user_dot_user__pb2.GetByIdResponse.FromString,
                 )
 
 
 class UserServiceServicer(object):
     """Missing associated documentation comment in .proto file."""
 
-    def GetByID(self, request, context):
+    def GetById(self, request, context):
         """Missing associated documentation comment in .proto file."""
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -34,10 +33,10 @@ class UserServiceServicer(object):
 
 def add_UserServiceServicer_to_server(servicer, server):
     rpc_method_handlers = {
-            'GetByID': grpc.unary_unary_rpc_method_handler(
-                    servicer.GetByID,
-                    request_deserializer=tbf_dot_user_dot_user__pb2.GetByIDRequest.FromString,
-                    response_serializer=tbf_dot_user_dot_base__pb2.User.SerializeToString,
+            'GetById': grpc.unary_unary_rpc_method_handler(
+                    servicer.GetById,
+                    request_deserializer=tbf_dot_user_dot_user__pb2.GetByIdRequest.FromString,
+                    response_serializer=tbf_dot_user_dot_user__pb2.GetByIdResponse.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -50,7 +49,7 @@ class UserService(object):
     """Missing associated documentation comment in .proto file."""
 
     @staticmethod
-    def GetByID(request,
+    def GetById(request,
             target,
             options=(),
             channel_credentials=None,
@@ -60,8 +59,8 @@ class UserService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/UserService/GetByID',
-            tbf_dot_user_dot_user__pb2.GetByIDRequest.SerializeToString,
-            tbf_dot_user_dot_base__pb2.User.FromString,
+        return grpc.experimental.unary_unary(request, target, '/UserService/GetById',
+            tbf_dot_user_dot_user__pb2.GetByIdRequest.SerializeToString,
+            tbf_dot_user_dot_user__pb2.GetByIdResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)

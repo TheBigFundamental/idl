@@ -20,7 +20,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   syntax='proto3',
   serialized_options=b'Z\007go/user',
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\n\x13tbf/user/user.proto\x1a\x13tbf/user/base.proto\"\x1c\n\x0eGetByIDRequest\x12\n\n\x02id\x18\x01 \x01(\x03\x32\x32\n\x0bUserService\x12#\n\x07GetByID\x12\x0f.GetByIDRequest\x1a\x05.User\"\x00\x42\tZ\x07go/userb\x06proto3'
+  serialized_pb=b'\n\x13tbf/user/user.proto\x1a\x13tbf/user/base.proto\"\x1c\n\x0eGetByIdRequest\x12\n\n\x02id\x18\x01 \x01(\x03\"&\n\x0fGetByIdResponse\x12\x13\n\x04user\x18\x01 \x01(\x0b\x32\x05.User2=\n\x0bUserService\x12.\n\x07GetById\x12\x0f.GetByIdRequest\x1a\x10.GetByIdResponse\"\x00\x42\tZ\x07go/userb\x06proto3'
   ,
   dependencies=[tbf_dot_user_dot_base__pb2.DESCRIPTOR,])
 
@@ -28,15 +28,15 @@ DESCRIPTOR = _descriptor.FileDescriptor(
 
 
 _GETBYIDREQUEST = _descriptor.Descriptor(
-  name='GetByIDRequest',
-  full_name='GetByIDRequest',
+  name='GetByIdRequest',
+  full_name='GetByIdRequest',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   create_key=_descriptor._internal_create_key,
   fields=[
     _descriptor.FieldDescriptor(
-      name='id', full_name='GetByIDRequest.id', index=0,
+      name='id', full_name='GetByIdRequest.id', index=0,
       number=1, type=3, cpp_type=2, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
@@ -58,15 +58,56 @@ _GETBYIDREQUEST = _descriptor.Descriptor(
   serialized_end=72,
 )
 
-DESCRIPTOR.message_types_by_name['GetByIDRequest'] = _GETBYIDREQUEST
+
+_GETBYIDRESPONSE = _descriptor.Descriptor(
+  name='GetByIdResponse',
+  full_name='GetByIdResponse',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='user', full_name='GetByIdResponse.user', index=0,
+      number=1, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=74,
+  serialized_end=112,
+)
+
+_GETBYIDRESPONSE.fields_by_name['user'].message_type = tbf_dot_user_dot_base__pb2._USER
+DESCRIPTOR.message_types_by_name['GetByIdRequest'] = _GETBYIDREQUEST
+DESCRIPTOR.message_types_by_name['GetByIdResponse'] = _GETBYIDRESPONSE
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
-GetByIDRequest = _reflection.GeneratedProtocolMessageType('GetByIDRequest', (_message.Message,), {
+GetByIdRequest = _reflection.GeneratedProtocolMessageType('GetByIdRequest', (_message.Message,), {
   'DESCRIPTOR' : _GETBYIDREQUEST,
   '__module__' : 'tbf.user.user_pb2'
-  # @@protoc_insertion_point(class_scope:GetByIDRequest)
+  # @@protoc_insertion_point(class_scope:GetByIdRequest)
   })
-_sym_db.RegisterMessage(GetByIDRequest)
+_sym_db.RegisterMessage(GetByIdRequest)
+
+GetByIdResponse = _reflection.GeneratedProtocolMessageType('GetByIdResponse', (_message.Message,), {
+  'DESCRIPTOR' : _GETBYIDRESPONSE,
+  '__module__' : 'tbf.user.user_pb2'
+  # @@protoc_insertion_point(class_scope:GetByIdResponse)
+  })
+_sym_db.RegisterMessage(GetByIdResponse)
 
 
 DESCRIPTOR._options = None
@@ -78,16 +119,16 @@ _USERSERVICE = _descriptor.ServiceDescriptor(
   index=0,
   serialized_options=None,
   create_key=_descriptor._internal_create_key,
-  serialized_start=74,
-  serialized_end=124,
+  serialized_start=114,
+  serialized_end=175,
   methods=[
   _descriptor.MethodDescriptor(
-    name='GetByID',
-    full_name='UserService.GetByID',
+    name='GetById',
+    full_name='UserService.GetById',
     index=0,
     containing_service=None,
     input_type=_GETBYIDREQUEST,
-    output_type=tbf_dot_user_dot_base__pb2._USER,
+    output_type=_GETBYIDRESPONSE,
     serialized_options=None,
     create_key=_descriptor._internal_create_key,
   ),
